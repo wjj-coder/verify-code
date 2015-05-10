@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  <display-name></display-name>	
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+  <listener>
+  <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+<servlet>
+<description>验证码</description>
+<servlet-name>imgServlet</servlet-name>
+<servlet-class>com.test.servlet.ImageRandomServlet</servlet-class>
+</servlet>  
+<servlet-mapping>
+<servlet-name>imgServlet</servlet-name>
+<url-pattern>/servlet/imageRandomServlet</url-pattern>
+</servlet-mapping>
+  
+<servlet>
+<description>提交验证码 验证</description>
+<servlet-name>verifyCode</servlet-name>
+<servlet-class>com.test.servlet.VerifyCodeServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>verifyCode</servlet-name>
+<url-pattern>/result/verifyCode</url-pattern>
+</servlet-mapping>
+
+</web-app>
